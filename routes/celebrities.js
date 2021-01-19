@@ -17,22 +17,22 @@ router.get('/celebrities', (req, res, next) => {
   });
 });
 
-module.exports = router;
-
-/*
-.then(resource => {
-      if (resource === null) {
-        const error = new Error('Resource does not exist.');
+router.get('/celebrities/:id', (req, res, next) => {
+  const id = req.params.id;
+  Celebritie.findById(id)
+    .then((celebrity) => {
+      console.log(celebrity);
+      if (celebrity === null) {
+        const error = new Error('There is no celebrity by this id');
         error.status = 404;
         next(error);
       } else {
-        res.render('resource/single', { resource: resource });
+        res.render('celebrities/show', { celebrity });
       }
     })
-    .catch(error => {
-      if (error.kind === 'ObjectId') {
-        error.status = 404;
-      }
+    .catch((error) => {
       next(error);
     });
-     */
+});
+
+module.exports = router;
