@@ -31,8 +31,32 @@ router.get('/celebrities/:id', (req, res, next) => {
       }
     })
     .catch((error) => {
+      if (error.kind === 'ObjectId') {
+        error.status = 404;
+      }
       next(error);
     });
 });
 
+router.get('/celebrities/create', (req, res, next) => {
+  res.render('celebrities/create');
+});
+
+router.post('/celebrities/', (req, res, next) => {
+  const data = req.body;
+  Celebritie.create({
+    name: data.title,
+    occupation: data.occupation,
+    catchPhrase: data.catchPhrase
+  })
+    .then((celebrity) => {
+      // I can't figure out why I am getting a 500 when I try to access the /celebrities/create form.
+      // reason: Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+      // I think it has something to do with the id right here below but I am really lost:
+      res.redirect(`celebrities/${celebrity._id}`);
+    })
+    .catch((error) => {
+      next(error);
+    });
+});
 module.exports = router;
