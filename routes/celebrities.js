@@ -18,6 +18,7 @@ router.get('/celebrities', (req, res, next) => {
 router.get('/celebrities/create', (req, res, next) => {
   res.render('celebrities/create');
 });
+
 router.get('/celebrities/:id', (req, res, next) => {
   const id = req.params.id;
   Celebrity.findById(id)
@@ -38,10 +39,22 @@ router.post('/celebrities', (req, res, next) => {
     catchPhrase: data.catchPhrase
   })
     .then((celebrity) => {
+      res.redirect('celebrities');
+    })
+    .catch((error) => {
+      next(error);
+    });
+});
+// DELETE CELEBRITY
+router.post('/celebrities/:id/delete', (req, res, next) => {
+  Celebrity.findByIdAndRemove(req.params.id)
+    .then(() => {
+      console.log('Celebrity removed');
       res.redirect('/celebrities');
     })
     .catch((error) => {
       next(error);
     });
 });
+
 module.exports = router;
