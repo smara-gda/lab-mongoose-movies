@@ -1,17 +1,17 @@
 [
   {
-    "name": "Tom Cruise",
-    "occupation": "actor",
-    "catchPhrase": "You complete me"
+    "title": "Mission Impossible",
+    "genre": "action",
+    "plot": "Ethan Hunt, an American special agent, struggles to prove his innocence and catch the real culprit when he is falsely accused of murdering his entire team."
   },
   {
-    "name": "Beyoncé",
-    "occupation": "singer",
-    "catchPhrase": "I sneezed on the beat and the beat got sicker"
+    "title": "Obsessed",
+    "genre": "drama",
+    "plot": "An asset manager leads a happy and stress-free life with his wife. Things take a turn when his colleague starts stalking him, threatening to ruin his career graph."
   },
   {
-    "name": "Kim Kardashian",
-    "occupation": "unknown",
-    "catchPhrase": "There's a lot of baggage that comes with us, but it's like Louis Vuitton baggage. You always want it."
+    "title": "Maleficent",
+    "genre": "Fantasy",
+    "plot": "Maleficent is a kind-hearted fairy, who is deceived by the love of her life, Stefan. Soon, she places a curse on his daughter, Aurora, in order to exact revenge."
   }
 ]

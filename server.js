@@ -17,7 +17,7 @@ mongoose
     const server = app.listen(PORT, () => {
       console.log(`Listening on http://localhost:${PORT}`);
     });
-    server.on('error', error => {
+    server.on('error', (error) => {
       if (error.syscall !== 'listen') {
         throw error;
       }
@@ -31,6 +31,9 @@ mongoose
       }
     });
   })
-  .catch(error => {
-    console.error(`There was an error connecting the database to URI "${URI}"`, error);
+  .catch((error) => {
+    console.error(
+      `There was an error connecting the database to URI "${URI}"`,
+      error
+    );
   });
