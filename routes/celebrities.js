@@ -57,4 +57,39 @@ router.post('/celebrities/:id/delete', (req, res, next) => {
     });
 });
 
+// EDIT CELEBERITY
+
+router.get('/celebrities/:id/edit', (req, res, next) => {
+  const id = req.params.id;
+  Celebrity.findById(id)
+    .then((celebrity) => {
+      res.render('celebrities/edit', { celebrity });
+    })
+    .catch((error) => {
+      next(error);
+    });
+});
+
+router.post('/cebrities/:id', (req, res, next) => {
+  const id = req.params.id;
+  const data = req.body;
+
+  const name = data.name;
+  const occupation = data.occupation;
+  const catchPhrase = data.catchPhrase;
+
+  const updatedValues = {
+    name,
+    occupation,
+    catchPhrase
+  };
+  Celebrity.findByIdAndUpdate(id, updatedValues, { runValidators: true })
+    .then(() => {
+      res.redirect('/celebrities');
+    })
+    .catch((error) => {
+      next(error);
+    });
+});
+
 module.exports = router;
