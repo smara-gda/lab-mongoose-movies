@@ -70,13 +70,13 @@ router.get('/celebrities/:id/edit', (req, res, next) => {
     });
 });
 
-router.post('/cebrities/:id', (req, res, next) => {
+router.post('/celebrities/:id', (req, res, next) => {
   const id = req.params.id;
   const data = req.body;
 
-  const name = data.name;
-  const occupation = data.occupation;
-  const catchPhrase = data.catchPhrase;
+  const name = data.editname;
+  const occupation = data.editoccupation;
+  const catchPhrase = data.editcatchPhrase;
 
   const updatedValues = {
     name,

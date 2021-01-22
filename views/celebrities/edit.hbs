@@ -2,13 +2,13 @@
 {{#with celebrity}}
 <form action="/celebrities/{{_id}}" method="POST">
      <label for="input-name">Name</label>
-    <input type="text" id="input-name" name="name" value="{{name}}" required/>
+    <input type="text" id="input-name" name="editname" value="{{name}}" required/>
 
     <label for="input-occupation">Occupation</label>
-    <input type="text" id="input-occupation" name="occupation" value="{{occupation}}"/>
+    <input type="text" id="input-occupation" name="editoccupation" value="{{occupation}}"/>
 
     <label for="input-catchPhrase">Catch Phrase</label>
-    <input type="text" id="input-catchPhrase" name="catchPhrase" value="{{catchPhrase}}" />
+    <input type="text" id="input-catchPhrase" name="editcatchPhrase" value="{{catchPhrase}}" />
     <button>Submit</button>
 </form>
 {{/with}}
